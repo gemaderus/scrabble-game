@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>The game</title>
+  <link rel="stylesheet" href="./styles.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,600,700" rel="stylesheet">
+</head>
+
+<body>
+  <div class="game">
+    <div class="text-center">
+      <button class="btn" id="js-start">Start Game</button>
+    </div>
+    <ul class="board" id="js-board">
+      <li class="board-cell">
+        <button class="btn btn-full btn-letters"></button>
+      </li>
+      <li class="board-cell">
+        <button class="btn btn-full btn-letters"></button>
+      </li>
+      <li class="board-cell">
+        <button class="btn btn-full btn-letters"></button>
+      </li>
+      <li class="board-cell">
+        <button class="btn btn-full btn-letters"></button>
+      </li>
+      <li class="board-cell">
+        <button class="btn btn-full btn-letters"></button>
+      </li>
+      <li class="board-cell">
+        <button class="btn btn-full btn-letters"></button>
+      </li>
+      <li class="board-cell">
+        <button class="btn btn-full btn-letters"></button>
+      </li>
+      <li class="board-cell">
+        <button class="btn btn-full btn-letters"></button>
+      </li>
+      <li class="board-cell">
+        <button class="btn btn-full btn-letters"></button>
+      </li>
+      <li class="board-cell">
+        <button class="btn btn-full btn-letters"></button>
+      </li>
+      <li class="board-cell">
+        <button class="btn btn-full btn-letters"></button>
+      </li>
+      <li class="board-cell">
+        <button class="btn btn-full btn-letters"></button>
+      </li>
+      <li class="board-cell">
+        <button class="btn btn-full btn-letters"></button>
+      </li>
+      <li class="board-cell">
+        <button class="btn btn-full btn-letters"></button>
+      </li>
+      <li class="board-cell">
+        <button class="btn btn-full btn-letters"></button>
+      </li>
+      <li class="board-cell">
+        <button class="btn btn-full btn-letters"></button>
+      </li>
+    </ul>
+    <div class="choosed-word text-center">
+      <h2>Your word</h2>
+      <span>Palabra</span>
+    </div>
+    <div class="player-display text-center">
+      <ul class="starts">
+        <li class="starts-item">
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 32 32">
+            <path d="M32 12.408l-11.056-1.607-4.944-10.018-4.944 10.018-11.056 1.607 8 7.798-1.889 11.011 9.889-5.199 9.889 5.199-1.889-11.011 8-7.798z"></path>
+          </svg>
+        </li>
+        <li class="starts-item">
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 32 32" class="star-selected">
+            <path d="M32 12.408l-11.056-1.607-4.944-10.018-4.944 10.018-11.056 1.607 8 7.798-1.889 11.011 9.889-5.199 9.889 5.199-1.889-11.011 8-7.798z"></path>
+          </svg>
+          </svg>
+        </li>
+        <li class="starts-item">
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 32 32">
+            <path d="M32 12.408l-11.056-1.607-4.944-10.018-4.944 10.018-11.056 1.607 8 7.798-1.889 11.011 9.889-5.199 9.889 5.199-1.889-11.011 8-7.798z"></path>
+          </svg>
+        </li>
+      </ul>
+      <span>Player 1</span>
+
+      <span class="points">30 <span>points</span></span>
+    </div>
+    <ul class="btn-holder">
+      <li>
+        <button class="btn btn-action" id="js-check">Check Letter</button>
+      </li>
+      <li>
+        <button class="btn btn-action" id="js-restart">New Game</button>
+      </li>
+    </ul>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript" src="./js/player.js"></script>
+  <script type="text/javascript" src="./js/board.js"></script>
+  <script type="text/javascript" src="./js/game.js"></script>
+  <script type="text/javascript" src="./js/main.js"></script>
+</body>
+
+</html>
