@@ -10,6 +10,8 @@ var Board = function() {
   this.choosedWord = [];
 };
 
+
+
 Board.prototype.randomConsonants = function() {
   var randomConsonantsNumber = Math.floor(Math.random()* 21);
   return this.consonants[randomConsonantsNumber];

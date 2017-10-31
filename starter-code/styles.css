@@ -73,7 +73,7 @@ li {
   width: 100%;
 }
 
-.btn-letter-selected {
+.is-clicked {
   background-color: blue;
 }
 
