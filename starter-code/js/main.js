@@ -51,9 +51,6 @@ window.onload = function() {
       };
 
 
-
-
-
       console.log(board.choosedWord);
       //console.log(board.choosedWord);
     };
