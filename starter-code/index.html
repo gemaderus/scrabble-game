@@ -65,7 +65,11 @@
     </ul>
     <div class="choosed-word text-center">
       <h2>Your word</h2>
-      <span>Palabra</span>
+      <span id="js-word" class="word"></span>
+      <div>
+        <button class="btn" id="js-delete">Delete</button>
+        <button class="btn">Delete all</button>
+      </div>
     </div>
     <div class="player-display text-center">
       <ul class="starts">
@@ -87,12 +91,13 @@
         </li>
       </ul>
       <span>Player 1</span>
+      <p>You have get <span id="point-game">10</span>points in this turn</p>
 
       <span class="points">30 <span>points</span></span>
     </div>
     <ul class="btn-holder">
       <li>
-        <button class="btn btn-action" id="js-check">Check Letter</button>
+        <button class="btn btn-action" id="js-check">Check Word</button>
       </li>
       <li>
         <button class="btn btn-action" id="js-restart">New Game</button>

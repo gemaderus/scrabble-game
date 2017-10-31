@@ -7,7 +7,7 @@ var Board = function() {
   this.level = 0;
   this.wordsList = ["casa", "cara", "cana", "perro", "letras"];
   this.wordsSelected = ["casa", "cara"];
-  this.choosedWord = '';
+  this.choosedWord = [];
 };
 
 Board.prototype.randomConsonants = function() {
@@ -36,13 +36,14 @@ Board.prototype.lengthWord = function(word) {
 //To check if the word existe in words.
 
 Board.prototype.existWord = function(value, array) {
-  return this.array.indexOf(value) > -1;
+  return array.indexOf(value) > -1;
 };
 
 //To push the word if it is correct
 Board.prototype.pushWord = function(word, array) {
   if(this.existWord() && !isDuplicated()) {
     this.wordSelected.push(word);
+    this.wordSelected.join('');
     return this.wordSelected;
   }
 };
@@ -51,4 +52,12 @@ Board.prototype.pushWord = function(word, array) {
 
 Board.prototype.isDuplicated = function(array, word) {
   return this.array.indexOf(word) > -1;
+};
+
+Board.prototype.deleteLastCharacter = function() {
+  if(this.choosedWord.length > 0) {
+    console.log("hola" +this.chooseWord);
+    this.choosedWord.pop();
+    return this.choosedWord;
+  }
 };
