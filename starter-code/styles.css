@@ -96,6 +96,8 @@ li {
 
 .word {
   height: 4rem;
+  display: flex;
+  justify-content: center;
   /*display: flex;
   margin-bottom: 2rem;
   align-items: center;

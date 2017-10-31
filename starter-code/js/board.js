@@ -21,12 +21,31 @@ Board.prototype.randomVowels = function() {
 };
 
 Board.prototype.randomBoard = function() {
-  for(var i = 0; i < this.length/8; i++) {
+  for(var i = 0; i < this.length/2; i++) {
     this.randomLetters.push(this.randomConsonants(), this.randomVowels());
   }
   return this.randomLetters;
 };
 
+Board.prototype.drawBoard = function (element) {
+  var fragment = document.createDocumentFragment();
+
+  this.randomLetters.forEach(function(randomLetter, index) {
+    var li = document.createElement('li');
+    li.classList.add('board-cell');
+
+    var button = document.createElement('button');
+    button.classList.add('btn', 'btn-full', 'btn-letters');
+    button.setAttribute('data-index', index);
+    button.setAttribute('data-letter', randomLetter);
+    button.innerHTML = randomLetter;
+
+    li.appendChild(button);
+    fragment.appendChild(li);
+  });
+
+  element.appendChild(fragment);
+};
 //To enter the word.
 
 Board.prototype.lengthWord = function(word) {
