@@ -39,12 +39,38 @@ window.onload = function() {
   $('#js-board').on('click', 'button', onClickButton);
 
 
-
-
-
     function onClickButton (e) {
+      console.log(state.jugadas.letter);
+      var wordContainer = document.getElementById('js-word-container');
+
+      var letras = state.jugadas.map(function(jugada) {
+        return jugada.letter;
+      });
+
+      // board.choosedWord.push(letras);
+
+      var span = document.createElement('span');
+      $(span).addClass('word');
+      span.innerHTML = letras;
+      wordContainer.appendChild(span);
+
+      console.log(state);
+
+
+
       // board.choosedWord.push(letter);
-      // $("js-word").innerHTML = .join('');
+      // /$("js-word").innerHTML = .join('');
+
+
+
+      //
+      // console.log(letras);
+
+
+      // console.log(board.chooseWord);
+      // word.innerHTML = board.choosedWord.join('');
+      // console.log(state);
+
 
       var button = $(e.target);
       var index = button.attr('data-index'); // cada elemento button en el dom tiene un índice asignado (0...63)
@@ -53,6 +79,7 @@ window.onload = function() {
       if (isClicked(index)) {
         button.removeClass('is-clicked');
         removeIndex(index);
+
       } else {
         button.addClass('is-clicked');
         state.jugadas.push({
@@ -73,5 +100,9 @@ window.onload = function() {
       state.jugadas = state.jugadas.filter(function (jugada) {
         return jugada.index !== index;
       });
+
+      console.log(state.jugadas);
     }
+
+
 };

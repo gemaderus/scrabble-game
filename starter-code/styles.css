@@ -96,10 +96,10 @@ li {
 
 .word {
   height: 4rem;
-  display: flex;
+  /*display: flex;
   margin-bottom: 2rem;
   align-items: center;
-  justify-content: center;
+  justify-content: center;*/
 }
 
 .choosed-word {
