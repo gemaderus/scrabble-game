@@ -73,5 +73,6 @@ Board.prototype.verifyWord = function(word, array, array2) {
 //To check if the word was selected before
 
 Board.prototype.isDuplicated = function(word, array) {
+  alert("The word is repeat. You lose a live");
   return array.indexOf(word) !== -1;
 };
