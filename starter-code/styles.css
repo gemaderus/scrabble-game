@@ -142,3 +142,25 @@ li {
 .points {
   display: block;
 }
+
+.flexbox {
+  display: flex;
+  justify-content: center;
+}
+
+.display-player {
+  margin-right: 4rem;
+}
+
+.player-indicator {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: green;
+  margin: auto;
+  display: none;
+}
+
+.is-selected {
+  display: block;
+}
