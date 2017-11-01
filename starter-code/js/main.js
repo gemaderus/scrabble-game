@@ -45,8 +45,6 @@ var state = {
 window.onload = function() {
   board.randomBoard();
 
-  // var btnLetter = document.getElementsByClassName("btn-letters");
-
   document.getElementById("js-start").onclick = function() {
     var element  = document.getElementById('js-board');
     board.drawBoard(element);

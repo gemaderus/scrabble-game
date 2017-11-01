@@ -5,7 +5,7 @@ var Game = function() {
 Game.prototype.startGame = function(board, player) {
   this.board = board;
   this.player = player;
-  board.randomLetters = [];
+  //board.randomLetters = [];
 };
 
 //Game over

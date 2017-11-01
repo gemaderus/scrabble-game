@@ -46,6 +46,7 @@ Board.prototype.drawBoard = function (element) {
 
   element.appendChild(fragment);
 };
+
 //To enter the word.
 
 Board.prototype.lengthWord = function(word) {
@@ -59,6 +60,7 @@ Board.prototype.existWord = function(value, array) {
 };
 
 //To push the word if it is correct
+
 Board.prototype.pushWord = function(word, array) {
   if(this.existWord() && !isDuplicated()) {
     this.wordSelected.push(word);
@@ -73,10 +75,10 @@ Board.prototype.isDuplicated = function(array, word) {
   return this.array.indexOf(word) > -1;
 };
 
-Board.prototype.deleteLastCharacter = function() {
-  if(this.choosedWord.length > 0) {
-    console.log("hola" +this.chooseWord);
-    this.choosedWord.pop();
-    return this.choosedWord;
-  }
-};
+// Board.prototype.deleteLastCharacter = function() {
+//   if(this.choosedWord.length > 0) {
+//     console.log("hola" +this.chooseWord);
+//     this.choosedWord.pop();
+//     return this.choosedWord;
+//   }
+// };
