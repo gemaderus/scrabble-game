@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="38px" height="34px" viewBox="0 0 38 34" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <filter x="-23.3%" y="-22.2%" width="150.0%" height="155.6%" filterUnits="objectBoundingBox" id="filter-1">
+      <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+      <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+      <feColorMatrix values="0 0 0 0 0.140761019   0 0 0 0 0.240232278   0 0 0 0 0.248697917  0 0 0 1 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+      <feMerge>
+          <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+          <feMergeNode in="SourceGraphic"></feMergeNode>
+      </feMerge>
+    </filter>
+  </defs>
+  <g id="Juego" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+    <g id="Vidas" transform="translate(4.000000, 2.000000)" fill-rule="nonzero">
+      <g id="Group-3" filter="url(#filter-1)">
+          <path d="M21.473029,-2.27373675e-13 C18.2988797,-2.27373675e-13 16.2075934,1.67193631 14.9377593,3.41805704 C13.6679253,1.67193631 11.576639,-2.27373675e-13 8.40248963,-2.27373675e-13 C3.69709544,-2.27373675e-13 0,3.86390673 0,8.84268535 C0,15.0473029 5.63900415,18.6512545 13.7052697,25.5620484 C14.0788382,25.8591577 14.4896266,26.0078981 14.9377593,26.0078981 C15.3858921,26.0078981 15.796556,25.8591577 16.170249,25.5620484 C24.2365145,18.6512545 30,15.0474267 30,8.84268535 C30,3.86390673 26.1784232,-2.27373675e-13 21.473029,-2.27373675e-13 Z" id="Shape" fill="#9B9B9B"></path>
+          <path d="M30,8.84268535 C30,15.0473029 24.2365145,18.6512545 16.170249,25.5620484 C15.7966805,25.8591577 15.3858921,26.0078981 14.9377593,26.0078981 L14.9377593,3.41805704 C16.2075934,1.67193631 18.2988797,-2.27373675e-13 21.473029,-2.27373675e-13 C26.1784232,-2.27373675e-13 30,3.86390673 30,8.84268535 Z" id="Shape" fill="#747274"></path>
+      </g>
+    </g>
+  </g>
+</svg>

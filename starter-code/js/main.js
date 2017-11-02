@@ -88,7 +88,7 @@ window.onload = function() {
       //game.win();
   };
 
-  document.getElementById("js-restart").onclick = function() {
-
-  };
+  // document.getElementById("js-restart").onclick = function() {
+  //
+  // };
 };

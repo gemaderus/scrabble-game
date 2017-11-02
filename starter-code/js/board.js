@@ -3,7 +3,7 @@ var Board = function() {
   this.vowels = ["A", "E", "I", "O", "U"];
   this.randomLetters = [];
   //this.chooseLetter = [];
-  this.length = 64;
+  this.length = 32;
   this.level = 0;
   this.wordsList = ["CASA", "CARA", "CANA", "PERRO", "LETRAS", "DODA"];
   this.wordsSelected = ["CASA"];
@@ -21,7 +21,7 @@ Board.prototype.randomVowels = function() {
 };
 
 Board.prototype.randomBoard = function() {
-  for(var i = 0; i < this.length/2; i++) {
+  for(var i = 0; i < this.length; i++) {
     this.randomLetters.push(this.randomConsonants(), this.randomVowels());
   }
   return this.randomLetters;
@@ -35,7 +35,7 @@ Board.prototype.drawBoard = function (element) {
     li.classList.add('board-cell');
 
     var button = document.createElement('button');
-    button.classList.add('btn', 'btn-full', 'btn-letters');
+    button.classList.add('btn', 'btn-letters');
     button.setAttribute('data-index', index);
     button.setAttribute('data-letter', randomLetter);
     button.innerHTML = randomLetter;
