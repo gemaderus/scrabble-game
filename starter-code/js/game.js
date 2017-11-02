@@ -40,10 +40,8 @@ Game.prototype.win = function() {
 
   if (!player1.isAlive() || !player2.isAlive()) {
     if (player1.isAlive()) {
-      console.log("The winner is player1");
       $('.js-winners .js-player1').show();
     } else {
-      console.log("The winner is player2");
       $('.js-winners .js-player2').show();
     };
   };

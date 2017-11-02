@@ -38,6 +38,9 @@ Player.prototype.showScore = function () {
 Player.prototype.reset = function() {
   this.score = 0;
   this.lives = 3;
+  this.showScore();
+  this.showLives();
+
 };
 
 Player.prototype.highlight = function (isOn) {

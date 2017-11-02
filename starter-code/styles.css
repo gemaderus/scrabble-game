@@ -310,6 +310,10 @@ li {
   /*display: none;*/
 }
 
+.player {
+  display: none;
+}
+
 .image-end-holder {
   align-items: center;
   display: flex;

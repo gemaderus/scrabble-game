@@ -56,6 +56,7 @@ window.onload = function() {
     game.displayTurn(state.turno);
     $(".container-home").css("display", "none");
     $(".container-game").css("display", "block");
+    console.log(board.wordsSelected);
   };
 
     $('#js-board').on('click', 'button', onClickButton);
@@ -99,13 +100,12 @@ window.onload = function() {
       if(!board.existWord(lettersJoin, board.wordsList)) {
         $("#js-warning").css("display", "block");
 
-        var text = $("#js-warning-text").text("Ops!! Parece que tu palabra no existe. Pierdes una vida!!");
-        $("js-warning-text").html(text);
+        $("#js-warning-text").text("Ops!! Parece que tu palabra no existe. Pierdes una vida!!");
       };
 
       if(board.isDuplicated(lettersJoin, board.wordsSelected)) {
-        $("#js-warning").addClass("is-visible");
-        $("js-warning-text").html("Ops!! Esta palabra está duplicada. Pierdes una vida!!");
+        $("#js-warning").css("display", "block");
+        $("#js-warning-text").text("Ops!! Parece que tu palabra está duplicada. Pierdes una vida!!");
       };
 
       document.getElementById("js-btn-cross").onclick = function() {
@@ -118,22 +118,33 @@ window.onload = function() {
       if(!player1.isAlive() || !player2.isAlive()) {
         game.gameOver();
       }
+
+      if(!player1.isAlive()) {
+        $(".js-player2").css("display", "block");
+        $(".js-star").text(player2.score);
+
+      } else if(!player2.isAlive()) {
+        $(".js-player1").css("display", "block");
+        $(".js-star").text(player1.score);
+
+      }
   };
 
   document.getElementById("js-new-game").onclick = function() {
+    state = {
+     jugadas: [],
+     turno: 0
+    };
     var element  = document.getElementById('js-board');
     $(".container-end-game").css("display", "none");
     $(".container-game").css("display", "block");
+    document.getElementById("js-warning").style.display = "none";
     board.newGame();
     board.drawBoard(element);
     player1.reset();
     player2.reset();
-    state = {
-     jugadas: [],
-     turno: 0
-   };
+    game.displayTurn(state.turno);
   };
-
 
   // document.getElementById("js-restart").onclick = function() {
   //

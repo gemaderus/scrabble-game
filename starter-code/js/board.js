@@ -4,7 +4,7 @@ var Board = function() {
   this.randomLetters = [];
   this.length = 32;
   this.level = 0;
-  this.wordsList = ["CASA", "CARA", "CANA", "PERRO", "LETRAS", "DODA"];
+  this.wordsList = ["CASA", "CARA", "CANA", "PERRO", "LETRAS", "DODA", "PERA", "LECHE", "ZUMO", "COLA", "MANO", "MESA"];
   this.wordsSelected = [];
 };
 
@@ -31,6 +31,7 @@ Board.prototype.drawBoard = function (element) {
   //Para no generar otro board nuevo.
 
   element.innerHTML = '';
+
   var fragment = document.createDocumentFragment();
 
   this.randomLetters.forEach(function(randomLetter, index) {
