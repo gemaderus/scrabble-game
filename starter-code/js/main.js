@@ -54,6 +54,8 @@ window.onload = function() {
     board.drawBoard(element);
     game.startGame(board, player1, player2);
     game.displayTurn(state.turno);
+    $(".container-home").css("display", "none");
+    $(".container-game").css("display", "block");
   };
 
     $('#js-board').on('click', 'button', onClickButton);

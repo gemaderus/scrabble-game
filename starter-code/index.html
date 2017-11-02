@@ -13,13 +13,20 @@
     <div class="container container-home">
       <div class="pt3">
         <h1>Welcome to the Word Kid</h1>
-        <h2>¿Cuanto sabes de palabras?</h2>
+        <h2>¿Cuanto sabes de <span>palabras?</span></h2>
       </div>
       <div>
-        <ul class="game-rules">
-          <li>1. Forma palabras haciendo click en las letras.</li>
-          <li>2. Cuanto mayor sea la palabra, más puntos obtendrás..</li>
-        </ul>
+        <div class="home-intro">
+          <ul class="home-avatar flexbox">
+            <li>
+              <img src="./images/monster.png" alt="">
+            </li>
+            <li>
+              <img src="./images/ghost.png" alt="">
+            </li>
+          </ul>
+          <p>Construye palabras haciendo click en las letras. Cuanto mayor sea la palabra, más puntos obtendrás.</p>
+        </div>
       </div>
       <div class="pb3">
         <button class="btn rounded btn-action" id="js-start">Start Game</button>
@@ -140,8 +147,6 @@
 
             </li>
           </ul>
-
-          <!-- <p> You have <span id="js-live1">3 </span>lives</p> -->
           <div class="text-center rounded">
             <span class="points" id="js-points1">0</span>
           </div>
@@ -255,7 +260,7 @@
           </ul>
           <!-- <p> You have <span id="js-live1">3 </span>lives</p> -->
           <div class="text-center rounded">
-            <span class="points" id="js-points1">0</span>
+            <span class="points" id="js-points2">0</span>
           </div>
         </div>
       </div>
