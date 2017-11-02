@@ -61,34 +61,79 @@ window.onload = function() {
     $('#js-board').on('click', 'button', onClickButton);
 
     document.getElementById("js-check").onclick = function() {
-      this.disabled = true;
-
       var lettersJoin = state.jugadas.map(function(jugada) {
         return jugada.letter;
       }).join('');
 
-      board.verifyWord(lettersJoin, board.wordsList, board.wordsSelected);
-      //state.turno++;
-      // player.updateLives();
-
-
-      if(game.displayTurn(state.turno) % 2 === 0) {
-        this.disabled = false;
-        $("#js-live1").html(player1.live);
-        player1.updateScore(board.lengthWord(lettersJoin));
-        $("#js-points1").html(player1.score);
-        lettersJoin = [];
-        state.turno++;
-      } else {
-        this.disabled = false;
-        $("#js-live2").html(player2.live);
-        player2.updateScore(board.lengthWord(lettersJoin));
-        $("#js-points2").html(player2.score);
-        lettersJoin = [];
-        state.turno++;
+      // Tiene que haber al menos una letra
+      if (lettersJoin === '') {
+        return;
       }
-      //game.win();
+
+      this.disabled = true;
+      var isWordCorrect = board.verifyWord(lettersJoin, board.wordsList, board.wordsSelected);
+
+      // Si la palabra no es correcta, restamos una vida
+      // si es correcta, aumentamos los puntos
+      // en estos casos delegamos las acciones a game, que en función del turno, sabrá qué player necesita
+
+      // actualizar
+      if (!isWordCorrect) {
+        game.takeLive(state.turno);
+      } else {
+        game.updateScore(state.turno, lettersJoin.length);
+      }
+
+      this.disabled = false;
+      state.turno++;
+
+      // reseteamos las letras
+      state.jugadas = [];
+      // el board lo desmarcamos
+      board.reset();
+      // borramos la palabra
+      word.draw([]);
+      // ponemos la bolita del turno
+      game.displayTurn(state.turno);
+
+      if(!board.existWord(lettersJoin, board.wordsList)) {
+        $("#js-warning").css("display", "block");
+
+        var text = $("#js-warning-text").text("Ops!! Parece que tu palabra no existe. Pierdes una vida!!");
+        $("js-warning-text").html(text);
+      };
+
+      if(board.isDuplicated(lettersJoin, board.wordsSelected)) {
+        $("#js-warning").addClass("is-visible");
+        $("js-warning-text").html("Ops!! Esta palabra está duplicada. Pierdes una vida!!");
+      };
+
+      document.getElementById("js-btn-cross").onclick = function() {
+
+        console.log("hola");
+        document.getElementById("js-warning").style.display = "none";
+      };
+
+
+      if(!player1.isAlive() || !player2.isAlive()) {
+        game.gameOver();
+      }
   };
+
+  document.getElementById("js-new-game").onclick = function() {
+    var element  = document.getElementById('js-board');
+    $(".container-end-game").css("display", "none");
+    $(".container-game").css("display", "block");
+    board.newGame();
+    board.drawBoard(element);
+    player1.reset();
+    player2.reset();
+    state = {
+     jugadas: [],
+     turno: 0
+   };
+  };
+
 
   // document.getElementById("js-restart").onclick = function() {
   //

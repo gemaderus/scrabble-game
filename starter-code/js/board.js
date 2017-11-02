@@ -2,12 +2,10 @@ var Board = function() {
   this.consonants = ["B","C","D","F","G","H","J","K","L","M","N","Ñ","P","Q","R","S","V","W","X","Y","Z"];
   this.vowels = ["A", "E", "I", "O", "U"];
   this.randomLetters = [];
-  //this.chooseLetter = [];
   this.length = 32;
   this.level = 0;
   this.wordsList = ["CASA", "CARA", "CANA", "PERRO", "LETRAS", "DODA"];
-  this.wordsSelected = ["CASA"];
-  //this.choosedWord = [];
+  this.wordsSelected = [];
 };
 
 Board.prototype.randomConsonants = function() {
@@ -21,6 +19,8 @@ Board.prototype.randomVowels = function() {
 };
 
 Board.prototype.randomBoard = function() {
+  this.randomLetters = [];
+
   for(var i = 0; i < this.length; i++) {
     this.randomLetters.push(this.randomConsonants(), this.randomVowels());
   }
@@ -28,6 +28,9 @@ Board.prototype.randomBoard = function() {
 };
 
 Board.prototype.drawBoard = function (element) {
+  //Para no generar otro board nuevo.
+
+  element.innerHTML = '';
   var fragment = document.createDocumentFragment();
 
   this.randomLetters.forEach(function(randomLetter, index) {
@@ -50,7 +53,7 @@ Board.prototype.drawBoard = function (element) {
 //To enter the word.
 
 Board.prototype.lengthWord = function(word) {
-  console.log(word.length);
+  //console.log(word.length);
   return word.length;
 };
 
@@ -61,18 +64,22 @@ Board.prototype.existWord = function(word, array) {
 };
 
 //To push the word if it is correct
-
 Board.prototype.verifyWord = function(word, array, array2) {
-  if(this.existWord(word, array) && !this.isDuplicated(word, array2)) {
-    this.lengthWord(word);
+  if (this.existWord(word, array) && !this.isDuplicated(word, array2)) {
     this.wordsSelected.push(word);
-    return this.wordsSelected;
+    return true;
   }
+
+  return false;
+};
+
+// Reset all clicked letters
+Board.prototype.reset = function () {
+  $('.board-cell .btn').removeClass('is-clicked');
 };
 
 //To check if the word was selected before
 
 Board.prototype.isDuplicated = function(word, array) {
-  alert("The word is repeat. You lose a live");
   return array.indexOf(word) !== -1;
 };

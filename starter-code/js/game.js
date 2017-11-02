@@ -8,41 +8,62 @@ Game.prototype.startGame = function(board, player1, player2) {
   this.player2 = player2;
 };
 
-//Game over
+Game.prototype.displayTurn = function(turno) {
+  // Actualizar los dos players en cada turno
 
-Game.prototype.gameOver = function() {
-  this.win();
-  console.log("Game over");
+  this.player1.highlight(turno % 2 === 0);
+  this.player2.highlight(turno % 2 !== 0);
 };
 
-Game.prototype.displayTurn = function(turno) {
+Game.prototype.getPlayer = function (turno) {
   if (turno % 2 === 0) {
-    // display.html("Its player one turn");
-    this.player1.highlight(turno % 2 === 0);
-
+    return this.player1;
   } else {
-    // display.html("Its player two turn");
-    this.player2.highlight(turno % 2 !== 0);
+    return this.player2;
   };
-  return turno;
+};
+
+Game.prototype.takeLive = function (turno) {
+  var player = this.getPlayer(turno);
+  player.updateLives();
+};
+
+Game.prototype.updateScore = function (turno, score) {
+  var player = this.getPlayer(turno);
+  player.updateScore(score);
 };
 
 //Win
 
 Game.prototype.win = function() {
-  if(player1.updateLives() === 0 || player2.updateLives() === 0) {
-    if(player1.updateLives() === 0) {
-      console.log("The winner is player2");
-    } else {
+  $('.js-winners player').hide();
+
+  if (!player1.isAlive() || !player2.isAlive()) {
+    if (player1.isAlive()) {
       console.log("The winner is player1");
+      $('.js-winners .js-player1').show();
+    } else {
+      console.log("The winner is player2");
+      $('.js-winners .js-player2').show();
     };
   };
 };
+
+
+Game.prototype.resetTurn = function (state) {
+  state.jugadas = [];
+};
+
+//Game over
+
+Game.prototype.gameOver = function() {
+  $(".container-end-game").css("display", "block");
+  $(".container-game").css("display", "none");
+};
+
 
 //New Game
 
 Board.prototype.newGame = function() {
   return this.randomBoard();
 };
-
-//Update Game

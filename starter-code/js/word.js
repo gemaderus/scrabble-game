@@ -4,7 +4,6 @@ function Word () {
   this.lettersJoin = [];
 }
 
-
 Word.prototype.draw = function(letters) {
   var fragment = document.createDocumentFragment();
 
