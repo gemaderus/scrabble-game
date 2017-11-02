@@ -169,6 +169,11 @@ li {
   width: 86px;
 }
 
+.letter .btn-letters {
+  background: #4A797D;
+  box-shadow: 0 4px 4px 0 rgba(46,80,83,0.60);
+}
+
 .letter:before {
   background-image: url(./images/tooltip.png);
   background-repeat: no-repeat;

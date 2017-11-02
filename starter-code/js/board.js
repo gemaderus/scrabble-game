@@ -51,15 +51,16 @@ Board.prototype.drawBoard = function (element) {
   element.appendChild(fragment);
 };
 
-//To enter the word.
+Board.prototype.unselect = function(index) {
+  $('#js-board .btn[data-index=' + index + ']').removeClass('is-clicked');
+};
 
+//To enter the word.
 Board.prototype.lengthWord = function(word) {
-  //console.log(word.length);
   return word.length;
 };
 
 //To check if the word existe in words.
-
 Board.prototype.existWord = function(word, array) {
   return array.indexOf(word) !== -1;
 };

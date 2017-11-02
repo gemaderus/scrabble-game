@@ -7,10 +7,20 @@ function Word () {
 Word.prototype.draw = function(letters) {
   var fragment = document.createDocumentFragment();
 
-  letters.forEach(function(letter, index) {
+  letters.forEach(function(letter) {
+    var letra = letter.letter;
+    var index = letter.index;
+
     var li = document.createElement('li');
     li.classList.add('letter');
-    li.innerHTML = letter;
+
+    var button = document.createElement('button');
+    button.classList.add('btn', 'btn-letters');
+    button.setAttribute('data-index', index);
+    button.setAttribute('data-letter', letra);
+    button.innerHTML = letra;
+
+    li.appendChild(button);
     fragment.appendChild(li);
   });
 

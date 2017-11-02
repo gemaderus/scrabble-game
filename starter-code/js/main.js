@@ -17,9 +17,16 @@ function onClickButton (e) {
   }
 
   // Le paso a word un array de letras del state
-  word.draw(state.jugadas.map(function (jugada) {
-    return jugada.letter;
-  }));
+  word.draw(state.jugadas);
+}
+
+// Borrar letra
+function onClickWord (e) {
+  var button = $(e.target);
+  var index = button.attr('data-index');
+  removeIndex(index);
+  board.unselect(index);
+  word.draw(state.jugadas);
 }
 
 function isClicked(index) {
@@ -49,17 +56,21 @@ var state = {
 window.onload = function() {
   board.randomBoard();
 
+  document.getElementById("js-btn-cross").onclick = function() {
+    $("#js-warning").hide();
+  };
+
   document.getElementById("js-start").onclick = function() {
     var element  = document.getElementById('js-board');
     board.drawBoard(element);
     game.startGame(board, player1, player2);
     game.displayTurn(state.turno);
-    $(".container-home").css("display", "none");
-    $(".container-game").css("display", "block");
-    console.log(board.wordsSelected);
+    $(".container-home").fadeOut();
+    $(".container-game").fadeIn();
   };
 
     $('#js-board').on('click', 'button', onClickButton);
+    $('#js-word').on('click', 'button', onClickWord);
 
     document.getElementById("js-check").onclick = function() {
       var lettersJoin = state.jugadas.map(function(jugada) {
@@ -74,13 +85,19 @@ window.onload = function() {
       this.disabled = true;
       var isWordCorrect = board.verifyWord(lettersJoin, board.wordsList, board.wordsSelected);
 
-      // Si la palabra no es correcta, restamos una vida
-      // si es correcta, aumentamos los puntos
-      // en estos casos delegamos las acciones a game, que en función del turno, sabrá qué player necesita
-
       // actualizar
       if (!isWordCorrect) {
         game.takeLive(state.turno);
+
+        if(!board.existWord(lettersJoin, board.wordsList)) {
+          $("#js-warning").show();
+          $("#js-warning-text").text("Ops!! Parece que tu palabra no existe. Pierdes una vida!!");
+        };
+
+        if(board.isDuplicated(lettersJoin, board.wordsSelected)) {
+          $("#js-warning").show();
+          $("#js-warning-text").text("Ops!! Parece que tu palabra está duplicada. Pierdes una vida!!");
+        };
       } else {
         game.updateScore(state.turno, lettersJoin.length);
       }
@@ -97,36 +114,8 @@ window.onload = function() {
       // ponemos la bolita del turno
       game.displayTurn(state.turno);
 
-      if(!board.existWord(lettersJoin, board.wordsList)) {
-        $("#js-warning").css("display", "block");
-
-        $("#js-warning-text").text("Ops!! Parece que tu palabra no existe. Pierdes una vida!!");
-      };
-
-      if(board.isDuplicated(lettersJoin, board.wordsSelected)) {
-        $("#js-warning").css("display", "block");
-        $("#js-warning-text").text("Ops!! Parece que tu palabra está duplicada. Pierdes una vida!!");
-      };
-
-      document.getElementById("js-btn-cross").onclick = function() {
-
-        console.log("hola");
-        document.getElementById("js-warning").style.display = "none";
-      };
-
-
       if(!player1.isAlive() || !player2.isAlive()) {
         game.gameOver();
-      }
-
-      if(!player1.isAlive()) {
-        $(".js-player2").css("display", "block");
-        $(".js-star").text(player2.score);
-
-      } else if(!player2.isAlive()) {
-        $(".js-player1").css("display", "block");
-        $(".js-star").text(player1.score);
-
       }
   };
 
@@ -136,17 +125,13 @@ window.onload = function() {
      turno: 0
     };
     var element  = document.getElementById('js-board');
-    $(".container-end-game").css("display", "none");
-    $(".container-game").css("display", "block");
-    document.getElementById("js-warning").style.display = "none";
+    $(".container-end-game").fadeOut();
+    $(".container-game").fadeIn();
+    $("#js-warning").hide();
     board.newGame();
     board.drawBoard(element);
     player1.reset();
     player2.reset();
     game.displayTurn(state.turno);
   };
-
-  // document.getElementById("js-restart").onclick = function() {
-  //
-  // };
 };

@@ -55,8 +55,16 @@ Game.prototype.resetTurn = function (state) {
 //Game over
 
 Game.prototype.gameOver = function() {
-  $(".container-end-game").css("display", "block");
-  $(".container-game").css("display", "none");
+  $(".container-end-game").fadeIn();
+  $(".container-game").fadeOut();
+
+  if(!this.player1.isAlive()) {
+    $(".js-player2").show();
+    $(".js-star").text(this.player2.score);
+  } else if(!this.player2.isAlive()) {
+    $(".js-player1").show();
+    $(".js-star").text(this.player1.score);
+  }
 };
 
 
