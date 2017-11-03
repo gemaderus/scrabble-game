@@ -65,6 +65,7 @@ li {
   background-image: url("../images/background.png"), radial-gradient(circle at center, #7AA8AD 0%,#4A797D 40%);
   background-position: center;
   background-repeat: no-repeat;
+  height: 100%;
 }
 
 .container-home {
