@@ -4,7 +4,7 @@ var Board = function() {
   this.randomLetters = [];
   this.length = 32;
   this.level = 0;
-  this.wordsList = ["CASA", "CARA", "CANA", "PERRO", "LETRAS", "DODA", "PERA", "LECHE", "ZUMO", "COLA", "MANO", "MESA"];
+  this.wordsList = ["CASA", "CARA", "CANA", "PERRO", "LETRAS", "DODA", "PERA", "LECHE", "ZUMO", "COLA", "MANO", "MESA", "COCHE", "MOTO", "NIÑO", "PLATANO", "PINO", "CALLE", "MANO", "PIE", "DEDO", "OJO", "CIELO", "LUNA", "SOL", "ROCA", "LIMON", "SANDIA", "NUBE", "PERO", "POMO", "LAPIZ", "PAPEL", "PALO", "PELO", "PILA", "POLO", "NUEZ", "NANA", "NENE", "NUEVO", "PICO", "HUEVO", "MIEL"];
   this.wordsSelected = [];
 };
 
