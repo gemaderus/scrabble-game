@@ -55,8 +55,8 @@ Game.prototype.resetTurn = function (state) {
 //Game over
 
 Game.prototype.gameOver = function() {
-  $(".container-end-game").fadeIn();
-  $(".container-game").fadeOut();
+  $(".container-end-game").show();
+  $(".container-game").hide();
 
   if(!this.player1.isAlive()) {
     $(".js-player2").show();

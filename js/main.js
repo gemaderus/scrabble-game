@@ -65,8 +65,8 @@ window.onload = function() {
     board.drawBoard(element);
     game.startGame(board, player1, player2);
     game.displayTurn(state.turno);
-    $(".container-home").fadeOut();
-    $(".container-game").fadeIn();
+    $(".container-home").hide();
+    $(".container-game").show();
   };
 
     $('#js-board').on('click', 'button', onClickButton);
@@ -125,8 +125,8 @@ window.onload = function() {
      turno: 0
     };
     var element  = document.getElementById('js-board');
-    $(".container-end-game").fadeOut();
-    $(".container-game").fadeIn();
+    $(".container-end-game").hide();
+    $(".container-game").show();
     $("#js-warning").hide();
     board.newGame();
     board.drawBoard(element);
