@@ -62,7 +62,7 @@ li {
 
 .container {
   align-items: center;
-  background-image: url("./images/background.png"), radial-gradient(circle at center, #7AA8AD 0%,#4A797D 40%);
+  background-image: url("../images/background.png"), radial-gradient(circle at center, #7AA8AD 0%,#4A797D 40%);
   background-position: center;
   background-repeat: no-repeat;
 }
@@ -175,7 +175,7 @@ li {
 }
 
 .letter:before {
-  background-image: url(./images/tooltip.png);
+  background-image: url(../images/tooltip.png);
   background-repeat: no-repeat;
   bottom: 100%;
   content: 'Borrar';
@@ -326,7 +326,7 @@ li {
 
 .image-star-holder {
   align-items: center;
-  background-image: url('./images/star.png');
+  background-image: url('../images/star.png');
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;
